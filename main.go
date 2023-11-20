@@ -7,19 +7,19 @@ import (
 )
 
 func getMD5Hash(message string) string {
-	fmt.Scanf(message)
 	hash := md5.Sum([]byte(message))
 	return hex.EncodeToString(hash[:])
 }
 
 func main() {
 	banner()
-	mypassword := "secret"
-	fmt.Println("MD5 Hashed value: ", getMD5Hash(mypassword))
-
+	var userInput string
+	fmt.Print("Enter text: ")
+	fmt.Scan(&userInput)
+	fmt.Println("MD5 Hashed value:", getMD5Hash(userInput))
 }
-func banner() {
 
+func banner() {
 	fmt.Println("Hasher ver 1.0 : Hash Stuff")
 	fmt.Printf(` 
 	
@@ -30,6 +30,4 @@ func banner() {
 .||.  .||. '|..'|' |'..|' .||. ||.  '|...' .||.    
  
 `)
-
-	fmt.Println("Enter text':")
 }
